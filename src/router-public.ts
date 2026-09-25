@@ -210,7 +210,7 @@ function iconResponse(body: BodyInit | null, contentType: string | null): Respon
 }
 
 async function handleWebsiteIcon(env: Env, host: string, fallbackMode: 'default' | 'not-found' = 'default'): Promise<Response> {
-  if (!isWebsiteIconProxyEnabled(env)) {
+  if (!isWebsiteIconProxyEnabled()) {
     return fallbackMode === 'not-found' ? handleMissingWebsiteIcon() : handleNwFavicon();
   }
 
@@ -281,7 +281,7 @@ export async function buildWebBootstrapResponse(env: Env): Promise<WebBootstrapR
     jwtSecretMinLength: LIMITS.auth.jwtSecretMinLength,
     registrationInviteRequired: userCount > 0,
     webAuthnAllowedOrigins: getConfiguredWebAuthnAllowedOrigins(env),
-    websiteIconsEnabled: isWebsiteIconProxyEnabled(env),
+    websiteIconsEnabled: isWebsiteIconProxyEnabled(),
   };
 }
 
