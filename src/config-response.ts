@@ -38,8 +38,8 @@ export function buildConfigResponse(origin: string) {
     featureStates: {
       'cipher-key-encryption': LIMITS.compatibility.cipherKeyEncryptionFeatureEnabled,
       'desktop-ui-settings-dialog': true,
-      'duo-redirect': true,
-      'email-verification': true,
+      'duo-redirect': false,
+      'email-verification': false,
       'fill-assist-targeting-rules': true,
       'pm-19051-send-email-verification': false,
       'pm-19148-innovation-archive': true,
