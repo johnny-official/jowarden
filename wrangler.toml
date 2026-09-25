@@ -1,9 +1,23 @@
 name = "nodewarden"
 main = "src/index.ts"
-compatibility_date = "2024-01-01"
+compatibility_date = "2026-09-25"
+
+# Disable public workers.dev production URL:
+# nodewarden.vnl-andanh.workers.dev
+workers_dev = false
+
+# Disable version/preview URLs:
+# *-nodewarden.vnl-andanh.workers.dev
+preview_urls = false
+
+# Smaller Worker bundle
+minify = true
+
+# Preserve variables configured from Cloudflare Dashboard
+keep_vars = true
 
 [build]
-command = "npm run build"
+command = "bun run build"
 
 [assets]
 binding = "ASSETS"
