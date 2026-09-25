@@ -1,23 +1,19 @@
-name = "nodewarden"
+name = "jowarden"
 main = "src/index.ts"
 compatibility_date = "2026-09-25"
 
 # Disable public workers.dev production URL:
-# nodewarden.vnl-andanh.workers.dev
 workers_dev = false
-
 # Disable version/preview URLs:
-# *-nodewarden.vnl-andanh.workers.dev
 preview_urls = false
 
 # Smaller Worker bundle
 minify = true
-
 # Preserve variables configured from Cloudflare Dashboard
 keep_vars = true
 
 [build]
-command = "bun run build"
+command = "npm run build"
 
 [assets]
 binding = "ASSETS"
@@ -53,17 +49,23 @@ new_sqlite_classes = [ "NotificationsHub" ]
 tag = "v2-backup-transfer-runner"
 new_sqlite_classes = [ "BackupTransferRunner" ]
 
-[observability]
-enabled = false
-head_sampling_rate = 1
 
+# Enable production observability.
+[observability]
+enabled = true
+
+# Keep logs at 100%.
+# NodeWarden is normally low/moderate traffic and auth errors are useful to retain.
 [observability.logs]
 enabled = true
 head_sampling_rate = 1
 persist = true
 invocation_logs = true
 
+# Prevent query-string values such as tokens from appearing in logs/traces.
+redact_query_string = true
+
+# Tracing is useful, but there is little benefit in tracing every request.
 [observability.traces]
 enabled = true
-persist = true
-head_sampling_rate = 1
+head_sampling_rate = 0.05
