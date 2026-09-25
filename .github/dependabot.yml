@@ -25,8 +25,8 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "05:10"
-      timezone: "Asia/Shanghai"
-    open-pull-requests-limit: 0
+      timezone: "Asia/Ho_Chi_Minh"
+    open-pull-requests-limit: 5
     groups:
       github-actions:
         patterns:
