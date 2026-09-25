@@ -9,15 +9,7 @@ const localeDir = path.join(__dirname, '..', 'webapp', 'src', 'lib', 'i18n', 'lo
 
 const localeFiles = [
   ['en', 'en.ts', 'en', 'English'],
-  ['zh-CN', 'zh-CN.ts', 'zhCN', 'Simplified Chinese'],
-  ['zh-TW', 'zh-TW.ts', 'zhTW', 'Traditional Chinese'],
-  ['ru', 'ru.ts', 'ru', 'Russian'],
-  ['es', 'es.ts', 'es', 'Spanish'],
-  ['fi', 'fi.ts', 'fi', 'Finnish'],
-  ['de', 'de.ts', 'de', 'German'],
-  ['fr', 'fr.ts', 'fr', 'French'],
-  ['it', 'it.ts', 'it', 'Italian'],
-  ['sv', 'sv.ts', 'sv', 'Swedish'],
+  ['ru', 'ru.ts', 'ru', 'Russian']
 ];
 
 function readLocale(fileName, variableName) {
