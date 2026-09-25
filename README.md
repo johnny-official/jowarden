@@ -13,7 +13,6 @@
 
 </p>
 
-
 <p align="center">
   <a href="./README_ZH.md">中文</a> |
   <a href="./CONTRIBUTING.md">Contributing</a> |
@@ -24,26 +23,26 @@
 
 ## Feature comparison with the official Bitwarden server
 
-| Feature | Bitwarden Free | NodeWarden | Notes |
-|---|---|---|---|
-| Web vault | ✅ | ✅ | **Original Web Vault UI** |
-| TOTP | ❌ | ✅ | Includes `steam://` support |
-| **PWA / offline** | ❌ | ✅ | **Installable, offline** |
-| **Passkey login** | ✅ | ✅ | **passwordless auth** |
-| API keys | ✅ | ✅ | CLI keys; create and rotate |
-| Login 2FA | ✅ | ✅ | TOTP, YubiKey, Passkey |
-| 2FA recovery codes | ✅ | ✅ | One-time 2FA disable codes |
-| Real-time push sync | ✅ | ✅ | All device sync |
-| Attachments / Send | ✅ | ✅ | Cloudflare R2 or KV |
-| Import / export | ✅ | ✅ | Bitwarden JSON / CSV / **ZIP** |
-| **Cloud backup center** | ❌ | ✅ | **Scheduled WebDAV / S3 incrementals** |
-| Device management | ✅ | ✅ | **Remove devices; trust controls** |
-| Login requests | ✅ | ✅ | **Cross-device login approval/unlock** |
-| **Multi-user** | ✅ | ✅ | Invite-code registration |
-| Domain rules | ✅ | ✅ | Equivalent domains, global exclusions |
-| Fill-assist | ✅ | ✅ | `POST /fill-assist`|
-| Organizations / collections / roles | ✅ | ❌ | Not implemented |
-| SSO / SCIM / directory | ✅ | ❌ | Not implemented |
+| Feature                             | Bitwarden Free | NodeWarden | Notes                                  |
+| ----------------------------------- | -------------- | ---------- | -------------------------------------- |
+| Web vault                           | ✅             | ✅         | **Original Web Vault UI**              |
+| TOTP                                | ❌             | ✅         | Includes `steam://` support            |
+| **PWA / offline**                   | ❌             | ✅         | **Installable, offline**               |
+| **Passkey login**                   | ✅             | ✅         | **passwordless auth**                  |
+| API keys                            | ✅             | ✅         | CLI keys; create and rotate            |
+| Login 2FA                           | ✅             | ✅         | TOTP, YubiKey, Passkey                 |
+| 2FA recovery codes                  | ✅             | ✅         | One-time 2FA disable codes             |
+| Real-time push sync                 | ✅             | ✅         | All device sync                        |
+| Attachments / Send                  | ✅             | ✅         | Cloudflare R2 or KV                    |
+| Import / export                     | ✅             | ✅         | Bitwarden JSON / CSV / **ZIP**         |
+| **Cloud backup center**             | ❌             | ✅         | **Scheduled WebDAV / S3 incrementals** |
+| Device management                   | ✅             | ✅         | **Remove devices; trust controls**     |
+| Login requests                      | ✅             | ✅         | **Cross-device login approval/unlock** |
+| **Multi-user**                      | ✅             | ✅         | Invite-code registration               |
+| Domain rules                        | ✅             | ✅         | Equivalent domains, global exclusions  |
+| Fill-assist                         | ✅             | ✅         | `POST /fill-assist`                    |
+| Organizations / collections / roles | ✅             | ❌         | Not implemented                        |
+| SSO / SCIM / directory              | ✅             | ❌         | Not implemented                        |
 
 ---
 
@@ -74,21 +73,16 @@
 
 - In this flow you hand code to Cloudflare to build and deploy. `wrangler.toml` or `wrangler.kv.toml` in the repo defines binding names; the Worker initializes the D1 schema on first request—no manual SQL upload.
 
-
-> [!TIP] 
+> [!TIP]
 > Default R2 vs optional KV:
->   | Storage | Card required | Max single attachment / Send file | Free tier |
->   |---|---|---|---|
->   | R2 | Yes | 100 MB (soft limit, adjustable) | 10 GB |
->   | KV | No | 25 MiB (Cloudflare limit) | 1 GB |
-
+> | Storage | Card required | Max single attachment / Send file | Free tier |
+> |---|---|---|---|
+> | R2 | Yes | 100 MB (soft limit, adjustable) | 10 GB |
+> | KV | No | 25 MiB (Cloudflare limit) | 1 GB |
 
 ## How to update
 
 - Manual: open your fork on GitHub; when the sync banner appears, click **Sync fork** → **Update branch**
-
-
-
 
 ## CLI deploy
 
@@ -109,7 +103,6 @@ bun run deploy:kv
 bun run dev
 bun run dev:kv
 ```
-
 
 ## Credits
 

@@ -309,7 +309,6 @@ Thanks to GN998 for responsibly reporting security issues addressed in this rele
 
 # v1.7.0 - Faster Multi-Device Sync, Mobile Push, and a Smoother Vault
 
-
 ### Added
 
 1. **Resource-level realtime sync.** NodeWarden now sends Bitwarden-style notifications for cipher, folder, and Send create, update, and delete events. The web app can refresh only the affected resource instead of reloading the full vault every time, and state-changing operations such as attachment uploads, attachment deletes, public Send access counts, and Send file downloads also emit the right updates. Commits: [fe0c66c](https://github.com/shuaiplus/nodewarden/commit/fe0c66c), [42b765b](https://github.com/shuaiplus/nodewarden/commit/42b765b), [045b23f](https://github.com/shuaiplus/nodewarden/commit/045b23f), [46ba8b9](https://github.com/shuaiplus/nodewarden/commit/46ba8b9), [f096681](https://github.com/shuaiplus/nodewarden/commit/f096681).

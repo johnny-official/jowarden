@@ -19,13 +19,13 @@ NodeWarden is independent from Bitwarden. Please do not report NodeWarden-specif
 
 Please include as much detail as possible:
 
-* A clear description of the vulnerability.
-* Steps to reproduce.
-* Affected version, commit, or deployment method.
-* Affected area, such as login, sync, vault data, attachments, Send, import/export, backup/restore, Passkey, WebAuthn, or API routes.
-* Expected behavior and actual behavior.
-* Security impact, such as authentication bypass, authorization bypass, replay, cross-user access, token misuse, data leakage, or secret exposure.
-* Proof of concept, logs, screenshots, or request examples, if safe to share privately.
+- A clear description of the vulnerability.
+- Steps to reproduce.
+- Affected version, commit, or deployment method.
+- Affected area, such as login, sync, vault data, attachments, Send, import/export, backup/restore, Passkey, WebAuthn, or API routes.
+- Expected behavior and actual behavior.
+- Security impact, such as authentication bypass, authorization bypass, replay, cross-user access, token misuse, data leakage, or secret exposure.
+- Proof of concept, logs, screenshots, or request examples, if safe to share privately.
 
 Please redact real passwords, tokens, private keys, recovery keys, vault data, and other secrets before submitting.
 
@@ -33,24 +33,24 @@ Please redact real passwords, tokens, private keys, recovery keys, vault data, a
 
 Security reports are welcome for issues affecting NodeWarden itself, including:
 
-* Authentication and session handling.
-* User authorization and cross-user access.
-* Vault data, cipher sync, attachments, and Send.
-* Import, export, backup, and restore.
-* Passkey, WebAuthn, and two-factor authentication.
-* Secret handling and provider credentials.
-* Cloudflare Workers, D1, R2, KV, WebDAV, or S3 behavior caused by NodeWarden code or documentation.
+- Authentication and session handling.
+- User authorization and cross-user access.
+- Vault data, cipher sync, attachments, and Send.
+- Import, export, backup, and restore.
+- Passkey, WebAuthn, and two-factor authentication.
+- Secret handling and provider credentials.
+- Cloudflare Workers, D1, R2, KV, WebDAV, or S3 behavior caused by NodeWarden code or documentation.
 
 ## Out of Scope
 
 The following are usually out of scope:
 
-* Issues only affecting third-party services or user infrastructure.
-* Misconfigured personal deployments not caused by NodeWarden defaults.
-* Social engineering or phishing.
-* Denial-of-service testing.
-* Scanner-only reports without a practical exploit path.
-* Reports that only mention outdated dependencies without showing real impact.
+- Issues only affecting third-party services or user infrastructure.
+- Misconfigured personal deployments not caused by NodeWarden defaults.
+- Social engineering or phishing.
+- Denial-of-service testing.
+- Scanner-only reports without a practical exploit path.
+- Reports that only mention outdated dependencies without showing real impact.
 
 ## Response
 

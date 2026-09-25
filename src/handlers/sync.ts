@@ -71,11 +71,7 @@ export async function handleSync(request: Request, env: Env, userId: string): Pr
       credential.encryptedUserKey && credential.encryptedPublicKey && credential.encryptedPrivateKey ? '1' : '0',
     ].join(':'))
     .join(',');
-  const cacheRequest = buildSyncCacheRequest(request, userId, revisionDate, accountPasskeyCacheTag, excludeDomains, excludeSends, preserveRepairableUris);
-  const cachedResponse = await readSyncCache(cacheRequest);
-  if (cachedResponse) {
-    return cachedResponse;
-  }
+  const cacheRequest = buildSyncCacheRequest(request, userId, revisionDate, accountPasskeyCacheTag, excludeDomains, excludeSends, preserveRepairableUris)
 
   const [ciphers, folders, sends, attachmentsByCipher, domainSettings] = await Promise.all([
     storage.getAllCiphers(userId),
@@ -148,7 +144,6 @@ export async function handleSync(request: Request, env: Env, userId: string): Pr
       'Content-Type': 'application/json',
       'Cache-Control': `private, max-age=${Math.max(1, Math.floor(LIMITS.cache.syncResponseTtlMs / 1000))}`,
     },
-  });
-  await writeSyncCache(cacheRequest, response);
+  })
   return response;
 }
