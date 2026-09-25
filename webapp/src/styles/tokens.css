@@ -28,10 +28,10 @@
   --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
   --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15), 0 8px 24px rgba(37, 99, 235, 0.12);
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
   --radius-pill: 999px;
   --ease-out-strong: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-soft: cubic-bezier(0.24, 0.8, 0.32, 1);
