@@ -6,13 +6,13 @@ compatibility_date = "2026-10-11"
 workers_dev = true
 preview_urls = false
 
-[[routes]]
-pattern = "vault.hellojohnny.xyz"
-custom_domain = true
-
 # Logging and optimization
 logpush = false
 minify = true
+
+[[routes]]
+pattern = "vault.hellojohnny.xyz"
+custom_domain = true
 
 [observability]
 enabled = true
