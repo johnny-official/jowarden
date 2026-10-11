@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2026-10-11"
 
 # Production only, no preview URLs
-workers_dev = true
+workers_dev = false
 preview_urls = false
 
 # Logging and optimization
