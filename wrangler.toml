@@ -1,6 +1,22 @@
 name = "jowarden"
 main = "src/index.ts"
-compatibility_date = "2024-01-01"
+compatibility_date = "2026-10-11"
+
+# Production only, no preview URLs
+workers_dev = true
+preview_urls = false
+
+[[routes]]
+pattern = "vault.hellojohnny.xyz"
+custom_domain = true
+
+# Logging and optimization
+logpush = false
+minify = true
+
+[observability]
+enabled = true
+head_sampling_rate = 0.01
 
 [build]
 command = "npm run build"
