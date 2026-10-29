@@ -60,7 +60,18 @@ Deploy only after reviewing the target account, configuration and changes:
 npm run deploy
 ```
 
-This command affects live infrastructure. No automatic production deployment is configured by the CI added for this fork.
+This command affects live infrastructure. Normally let GitHub Actions deploy instead: the `CI` workflow validates the exact commit, then deploys only `main` through the `production` environment. PR validation never receives Cloudflare credentials.
+
+### GitHub / Cloudflare setup
+
+1. In GitHub repository Actions secrets, set `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `UPSTREAM_SYNC_TOKEN`. Never commit their values.
+2. Obtain the Account ID from the intended Cloudflare account dashboard. Create an account-scoped API token from Cloudflare profile API Tokens; start with the Workers edit template and restrict it to the intended account/zone. This deployment also uses D1, R2, Durable Objects and a custom domain: verify the template grants the necessary permissions for those existing resources. Do not use a Global API Key.
+3. In GitHub Settings > Environments, configure `production` to allow only `main`. For stronger isolation, move the Cloudflare secrets from repository secrets into this environment. Optionally enable required reviewers for manual production approval.
+4. Disable the Cloudflare Worker's automatic Git builds/deployments before enabling this workflow on `main`. Keep the Worker, database, buckets and runtime secrets intact. Otherwise Cloudflare Git builds can deploy independently of CI.
+5. Protect `main`: require pull requests and the `validate` check from the `CI` workflow, block force pushes, and restrict bypass permissions. Review workflow changes especially carefully.
+6. Merge a reviewed PR or manually run `CI` on `main`. Check that `validate` succeeds before `Deploy production` starts, then inspect the Cloudflare deployment and test login/sync. A failed validation must leave deployment skipped.
+
+The deploy job runs `wrangler deploy` against `wrangler.toml`; it does not recreate credentials or intentionally rename storage. The configuration references the existing D1 database by name. If Wrangler requests a database ID, verify it against the existing production database before adding it; never create a replacement database merely to satisfy CI. Keep `JWT_SECRET` in Cloudflare runtime secrets. A successful deploy is not proof of application health: test client login/sync and retain a tested backup/rollback plan.
 
 ## Updates
 
