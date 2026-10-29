@@ -1,5 +1,4 @@
 import type { ComponentChildren } from 'preact';
-import { APP_VERSION } from '@shared/app-version';
 
 interface StandalonePageFrameProps {
   title: string;
@@ -12,9 +11,9 @@ export default function StandalonePageFrame(props: StandalonePageFrameProps) {
   return (
     <div className="standalone-shell">
       <div className="standalone-brand standalone-brand-outside">
-        <img src="/nodewarden-logo.svg" alt="NodeWarden logo" className="standalone-brand-logo" />
+        <img src="/nodewarden-logo.svg" alt="Jowarden logo" className="standalone-brand-logo" />
         <div>
-          <span className="standalone-brand-wordmark" role="img" aria-label="NodeWarden" />
+          <span style={{ fontSize: '2rem', fontWeight: 700, letterSpacing: '-0.04em' }}>Jowarden</span>
         </div>
       </div>
 
@@ -28,18 +27,7 @@ export default function StandalonePageFrame(props: StandalonePageFrameProps) {
       </div>
 
       <div className="standalone-footer">
-        <a href="https://github.com/shuaiplus/NodeWarden" target="_blank" rel="noreferrer">NodeWarden Repository</a>
-        <span> | </span>
-        <a href="https://github.com/shuaiplus" target="_blank" rel="noreferrer">Author: @shuaiplus</a>
-        <span> | </span>
-        <a
-          href="https://github.com/shuaiplus/NodeWarden/releases/latest"
-          target="_blank"
-          rel="noreferrer"
-          className="standalone-version"
-        >
-          v{APP_VERSION}
-        </a>
+        <a href="https://github.com/johnny-official/jowarden" target="_blank" rel="noreferrer">Jowarden</a>
       </div>
     </div>
   );

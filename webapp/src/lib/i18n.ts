@@ -7,8 +7,6 @@
 // otherwise leave raw txt_* keys in the rendered UI.
 export type Locale =
   | 'en'
-  | 'zh-CN'
-  | 'zh-TW'
   | 'ru'
   | 'es'
   | 'fi'
@@ -24,8 +22,6 @@ type MessageTable = Record<string, string>;
 
 export const AVAILABLE_LOCALES: readonly { value: Locale; label: string }[] = [
   { value: 'en', label: 'English' },
-  { value: 'zh-CN', label: '简体中文' },
-  { value: 'zh-TW', label: '繁體中文' },
   { value: 'ru', label: 'Русский' },
   { value: 'es', label: 'Español' },
   { value: 'fi', label: 'Suomi' },
@@ -54,8 +50,6 @@ function resolveInitialLocale(): Locale {
     const langs = Array.isArray(navigator.languages) ? navigator.languages : [navigator.language];
     for (const lang of langs) {
       const normalized = String(lang || '').toLowerCase();
-      if (normalized === 'zh-tw' || normalized === 'zh-hk' || normalized === 'zh-mo' || normalized.includes('hant')) return 'zh-TW';
-      if (normalized.startsWith('zh')) return 'zh-CN';
       if (normalized.startsWith('ru')) return 'ru';
       if (normalized.startsWith('es')) return 'es';
       if (normalized.startsWith('fi')) return 'fi';
@@ -70,8 +64,6 @@ function resolveInitialLocale(): Locale {
 
 const localeLoaders: Record<Locale, () => Promise<{ default: MessageTable }>> = {
   en: () => Promise.resolve({ default: enMessages }),
-  'zh-CN': () => import('./i18n/locales/zh-CN'),
-  'zh-TW': () => import('./i18n/locales/zh-TW'),
   ru: () => import('./i18n/locales/ru'),
   es: () => import('./i18n/locales/es'),
   fi: () => import('./i18n/locales/fi'),
