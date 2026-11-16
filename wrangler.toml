@@ -11,7 +11,8 @@ logpush = false
 minify = true
 
 [[routes]]
-pattern = "vault.hellojohnny.xyz"
+# Replaced at deploy time from the VAULT_DOMAIN environment variable.
+pattern = "VAULT_DOMAIN_PLACEHOLDER"
 custom_domain = true
 
 [observability]
